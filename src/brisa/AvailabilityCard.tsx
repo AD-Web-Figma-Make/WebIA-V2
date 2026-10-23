@@ -48,11 +48,11 @@ export default function AvailabilityCard({ offer, state, search, alternatives, v
   const u = offer?.unit;
   const dim = st === "unavailable" || st === "alternatives" || st === "error";
   const priced = st === "available" || st === "limited" || st === "priceChanged";
-  const dir = vertical ? "flex-col" : "flex-row sm:flex-col";
+  const dir = "flex-col";
 
   return (
     <article aria-busy={st === "loading"} className={`rise group flex overflow-hidden rounded-2xl border border-cream-200 bg-white shadow-[0_2px_10px_rgba(58,44,30,0.06)] transition hover:shadow-[0_8px_24px_rgba(58,44,30,0.12)] ${dir}`}>
-      <div className={`relative shrink-0 overflow-hidden bg-cream-200 ${vertical ? "aspect-[4/3]" : "w-[38%] min-h-44 sm:aspect-[4/3] sm:w-full sm:min-h-0"}`}>
+      <div className={`relative shrink-0 overflow-hidden bg-cream-200 ${"aspect-[4/3]"}`}>
         {st === "loading" || !u ? (
           <div className="shimmer absolute inset-0" />
         ) : (
@@ -80,7 +80,7 @@ export default function AvailabilityCard({ offer, state, search, alternatives, v
 
         {u && st !== "loading" && st !== "alternatives" && (
           <>
-            <p className={`text-[13px] leading-snug text-bark-700 line-clamp-3 ${vertical ? "" : "max-sm:hidden"}`}>{u.description}</p>
+            <p className={`text-[13px] leading-snug text-bark-700 line-clamp-3`}>{u.description}</p>
             <ul className="flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-bark-700">
               <li className="flex items-center gap-1.5"><Users className="size-3.5" aria-hidden />{search.adults} {search.adults === 1 ? "adulto" : "adultos"}{search.pets > 0 && ` · ${plural(search.pets, "perro", "perros")}`}</li>
               {u.features.slice(0, 2).map((f) => {
