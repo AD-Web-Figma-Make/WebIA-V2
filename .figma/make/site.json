@@ -1,0 +1,10 @@
+{
+  "description": "Offers an immersive travel assistant interface to discover, chat, and book Mediterranean camping accommodations with real-time availability and pricing.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
